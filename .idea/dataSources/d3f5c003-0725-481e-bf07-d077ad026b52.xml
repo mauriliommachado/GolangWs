@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dataSource name="agenda@localhost">
+  <database-model serializer="dbm" rdbms="MYSQL" format-version="4.2">
+    <root id="1"/>
+    <schema id="2" parent="1" name="agenda">
+      <Current>1</Current>
+      <Visible>1</Visible>
+    </schema>
+    <schema id="3" parent="1" name="facult"/>
+    <schema id="4" parent="1" name="information_schema"/>
+    <schema id="5" parent="1" name="livraria"/>
+    <schema id="6" parent="1" name="mydb"/>
+    <schema id="7" parent="1" name="mysql"/>
+    <schema id="8" parent="1" name="performance_schema"/>
+    <schema id="9" parent="1" name="sakila"/>
+    <schema id="10" parent="1" name="test"/>
+    <schema id="11" parent="1" name="world"/>
+    <table id="12" parent="2" name="agenda"/>
+    <table id="13" parent="2" name="empresa"/>
+    <table id="14" parent="2" name="funcionario"/>
+    <table id="15" parent="2" name="tarefas"/>
+    <column id="16" parent="12" name="idAgenda">
+      <Position>1</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="17" parent="12" name="idFuncionario">
+      <Position>2</Position>
+      <DataType>int(11)|0</DataType>
+    </column>
+    <column id="18" parent="12" name="nmAgenda">
+      <Position>3</Position>
+      <DataType>varchar(30)|0</DataType>
+    </column>
+    <index id="19" parent="12" name="fk_agd_func">
+      <ColNames>idFuncionario</ColNames>
+    </index>
+    <key id="20" parent="12" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>idAgenda</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="21" parent="12" name="fk_agd_func">
+      <ColNames>idFuncionario</ColNames>
+      <RefSchemaName>agenda</RefSchemaName>
+      <RefTableName>funcionario</RefTableName>
+      <RefColNames>idFuncionario</RefColNames>
+    </foreign-key>
+    <column id="22" parent="13" name="idEmpresa">
+      <Position>1</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="23" parent="13" name="nmEmpresa">
+      <Position>2</Position>
+      <DataType>varchar(30)|0</DataType>
+    </column>
+    <key id="24" parent="13" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>idEmpresa</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="25" parent="14" name="idFuncionario">
+      <Position>1</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="26" parent="14" name="nmFuncionario">
+      <Position>2</Position>
+      <DataType>varchar(30)|0</DataType>
+    </column>
+    <column id="27" parent="14" name="idEmpresa">
+      <Position>3</Position>
+      <DataType>int(11)|0</DataType>
+    </column>
+    <index id="28" parent="14" name="fk_func_emp">
+      <ColNames>idEmpresa</ColNames>
+    </index>
+    <key id="29" parent="14" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>idFuncionario</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="30" parent="14" name="fk_func_emp">
+      <ColNames>idEmpresa</ColNames>
+      <RefSchemaName>agenda</RefSchemaName>
+      <RefTableName>empresa</RefTableName>
+      <RefColNames>idEmpresa</RefColNames>
+    </foreign-key>
+    <column id="31" parent="15" name="idAgenda">
+      <Position>1</Position>
+      <DataType>int(11)|0</DataType>
+    </column>
+    <column id="32" parent="15" name="idTarefa">
+      <Position>2</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="33" parent="15" name="nmTarefa">
+      <Position>3</Position>
+      <DataType>varchar(30)|0</DataType>
+    </column>
+    <column id="34" parent="15" name="dtCriacaoTarefa">
+      <Position>4</Position>
+      <DataType>datetime|0</DataType>
+    </column>
+    <column id="35" parent="15" name="dtLimiteTarefa">
+      <Position>5</Position>
+      <DataType>datetime|0</DataType>
+    </column>
+    <column id="36" parent="15" name="estTarefa">
+      <Position>6</Position>
+      <DataType>int(11)|0</DataType>
+    </column>
+    <column id="37" parent="15" name="obsTarefa">
+      <Position>7</Position>
+      <DataType>varchar(11)|0</DataType>
+    </column>
+    <index id="38" parent="15" name="fk_tar_agd">
+      <ColNames>idAgenda</ColNames>
+    </index>
+    <key id="39" parent="15" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>idTarefa</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="40" parent="15" name="fk_tar_agd">
+      <ColNames>idAgenda</ColNames>
+      <RefSchemaName>agenda</RefSchemaName>
+      <RefTableName>agenda</RefTableName>
+      <RefColNames>idAgenda</RefColNames>
+    </foreign-key>
+  </database-model>
+</dataSource>
