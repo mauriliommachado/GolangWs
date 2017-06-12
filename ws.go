@@ -24,10 +24,7 @@ func AgendaServer(w http.ResponseWriter, req *http.Request) {
 	// sql.DB should be long lived "defer" closes it once this function ends
 	defer db.Close()
 
-	rows, err := db.Query("SELECT * FROM agenda")
-	if err != nil {
-		panic(err.Error()) // proper error handling instead of panic in your app
-	}
+	rows, err := db.Query("SELECT nmAgenda FROM agenda")
 	if err != nil {
 		panic(err.Error()) // proper error handling instead of panic in your app
 	}
